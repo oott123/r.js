@@ -229,6 +229,9 @@ define([ 'env!env/file', 'pragma', 'parse', 'lang', 'logger', 'commonJs', 'prim'
                         }
 
                         prim().start(function () {
+                            if (!file.exists(url)) {
+                                return;
+                            }
                             if (hasProp(require._cachedFileContents, url) &&
                                     (falseProp(context.needFullExec, moduleName) ||
                                     getOwn(context.fullExec, moduleName))) {

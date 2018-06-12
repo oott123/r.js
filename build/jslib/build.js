@@ -1941,6 +1941,9 @@ define(function (require) {
             }
 
             return prim.serial(layer.buildFilePaths.map(function (path) {
+                if (!file.exists(path)) {
+                    return;
+                }
                 return function () {
                     var singleContents = '';
 
